@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <% data.articles.forEach(blog => { %>
+
+        <p><%= blog.source.name %></p>
+        <p><%= blog.author %></p>
+        <p><%= blog.title %></p>
+        <p><%= blog.description %></p>
+        <p><a href="<%= blog.url %>">link</a></p>
+        <p><a href="<%= blog.urlToImage %>">image</a></p>
+        <p><img src="<%= blog.urlToImage %>" style="width: 100px;height: 100px;"></p>
+        <p><%= blog.urlToImage %></p>
+        <p><%= blog.publishedAt %></p>
+        <p><%= blog.content %></p>
+
+        <%= blog.publishedAt.toString().substring(0,12) %>
+
+    <% }) %>
+
+
+    <% if( blog.publishedAt.toString().substring(5,7) == 12){ %>
+        <small style="font-size: 10px;"><b>DEC</b></small>
+    <% } %>
+</body>
+</html>

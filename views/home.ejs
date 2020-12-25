@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+      <title>Hello, world!</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   </head>
+   <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+      body {
+      font-family: "Poppins", sans-serif !important;
+      }
+      .wrap {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      }
+      .button {
+      width: 90px;
+      height: 40px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 8px;
+      letter-spacing: 2.5px;
+      font-weight: 600;
+      color: white;
+      background-color: #e2255e;
+      border: none;
+      border-radius: 45px;
+      box-shadow: 0px 8px 15px rgb(53, 189, 83);
+      transition: all 0.3s ease 0s;
+      cursor: pointer;
+      outline: none;
+      }
+      .button:hover {
+      background-color: #27db93;
+      box-shadow: 0px 15px 20px rgba(36, 177, 120, 0.4);
+      color: #fff;
+      transform: translateY(-7px);
+      }
+   </style>
+   <body>
+      <div class="container my-18 cont" style="margin-top: 40px;">
+         <div class="text-center mb-5">
+            <h1 class="text-capitalize font-weight-bold mt-20">Latest <span style="color:#9B5DE5">News</span></h1>
+         </div>
+         <div class="row">
+
+            <% data.articles.forEach(blog => { %>
+
+                <div class="col-md-3 p-4">
+                <div class="border">
+                    <div class="position-relative w-100" style="height: 150px;background-image: url(<%= blog.urlToImage %>); background-size: cover; background-position: center;">
+                        <div class="position-absolute bg-dark" style="opacity: .3; top: 0; left:0; right: 0; bottom: 0;"></div>
+                        <div class="position-absolute text-white d-flex flex-column justify-content-center align-items-center rounded-circle" style="top:10px; right:10px; width: 50px; height: 50px; background-color: #e2255e;box-shadow: 0px 8px 15px rgb(129, 190, 142);">
+                            <small style="font-size: 10px;" id="ddate"><%= blog.publishedAt.toString().substring(8,10) %></small>
+
+                            <% var myObj, x; %>
+                            <% myObj = {"12":"DEC", "11":"NOV", "10":"OCT", "9": "SEP"}; %>
+                            <% for (x in myObj) { %>
+                                <% if( blog.publishedAt.toString().substring(5,7) == x){ %>
+                                    <small style="font-size: 10px;"><b><%= myObj[x] %></b></small>
+                                <% } %>
+                            <% } %>
+
+                        </div>
+                        <a href="<%= blog.url %>" class="position-absolute px-3 py-2 text-white" style="bottom:2px; left: 0px;">
+                            <small>
+                            <div class="wrap">
+                                <button class="button">
+                                <i class="fa fa-chevron-circle-up fa-2x" aria-hidden="true"><span class="uppicon">link</span></i>
+                                </button>
+                            </div>
+                            </small>
+                        </a>
+                    </div>
+                    <div class="px-3 pt-4 pb-3">
+                        <a href="#" class="d-inline-block" style="text-decoration: none;">
+                            <h4 class="text-dark" style="font-weight: 600; font-size: 1.1rem;"><%= blog.title %></h4>
+                        </a>
+                        <p class="tex-secondary" style="font-size:14px">
+                            <%= blog.description.substring(0,150) %>...                        
+                        </p>
+                        <div class="d-flex">
+                            <div class="d-flex align-items-center">
+                            <i class="fa fa-newspaper-o" aria-hidden="true" style="color: #0078da;"></i>
+                            <small class="" style="color: #3e413f; padding-left: 10px; font-weight: 600;"><%= blog.source.name %></small>
+                            </div>
+                            <div class="d-flex align-items-center">
+                            <i class="fa fa-heart" aria-hidden="true" style="padding-left: 26px;color: #e2255e;"></i>
+                            <a href="" style="text-decoration: none;"><small class="mt-1" style="color: #9e9e9e; padding-left: 10px;">46</small></a>   
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                </div>
+
+            <% }) %>
+
+         </div>
+      </div>
+
+      
+      <!-- Option 1: Bootstrap Bundle with Popper -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+      
+    </body>
+</html>
+
