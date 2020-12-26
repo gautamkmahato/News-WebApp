@@ -59,19 +59,19 @@ app.post('/search', async (req, res) => {
         await fetch(url)
         .then((data) => data.json())
         .then((data) => {
-            // res.render('home', {
-            //     data: data
-            //     // source: data.articles[0].source,
-            //     // author: data.articles[0].author,
-            //     // title: data.articles[0].title,
-            //     // description: data.articles[0].description,
-            //     // url: data.articles[0].url,
-            //     // image: data.articles[0].urlToImage,
-            //     // publishedAt: data.articles[0].publishedAt,
-            //     // content: data.articles[0].content
-            // })
-            res.send(data)
-            console.log(data);
+            res.render('home', {
+                data: data
+                // source: data.articles[0].source,
+                // author: data.articles[0].author,
+                // title: data.articles[0].title,
+                // description: data.articles[0].description,
+                // url: data.articles[0].url,
+                // image: data.articles[0].urlToImage,
+                // publishedAt: data.articles[0].publishedAt,
+                // content: data.articles[0].content
+            })
+            // res.send(data)
+            // console.log(data);
         });
     }
     catch(err){

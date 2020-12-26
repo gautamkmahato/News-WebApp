@@ -49,12 +49,28 @@ body {
   color: #fff;
   transform: translateY(-7px);
 }
+
+/* Styles for wrapping the search box */
+
+.main {
+    width: 50%;
+    margin: 50px auto;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .main {
+    width: 100%;
+    margin: 50px auto;
+  }
+}
+
   </style>
   <body>
 
     <div class="my-18 cont">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light container">
-          <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container container-fluid">
             <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -92,6 +108,35 @@ body {
       </div>
 
 <div class="container my-18 cont">
+
+  <div class="main">
+    <!-- Another variation with a button -->
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search this blog">
+      <div class="input-group-append">
+        <button class="btn btn-secondary" type="button">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+<form action="/search" method="POST"></form>
+  <div class="main">
+    <!-- Another variation with a button -->
+    <div class="input-group">
+    <input type="text" name="news" class="form-control" placeholder="Search this blog">
+    <div class="input-group-append">
+        <button class="btn btn-secondary" type="submit">
+        <i class="fa fa-search"></i>
+        </button>
+    </div>
+    </div>
+  </div>
+</form>
+  
+
+
     <div class="text-center mb-5">
       <span class="text-secondary text-uppercase">Blog</span>
       <h1 class="text-capitalize font-weight-bold mt-2">Our Latest <span style="color:#9B5DE5">Blogs</span></h1>
